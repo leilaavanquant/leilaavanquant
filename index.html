@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leila Avan | Quantitative Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-blue: #2c3e50;
+            --accent-blue: #3498db;
+            --light-blue: #eef5ff;
+            --dark-gray: #2c3e50;
+            --medium-gray: #7f8c8d;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-gray);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+        
+        h2 {
+            position: relative;
+            padding-bottom: 15px;
+            font-size: 2.2rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-blue);
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-blue) 100%);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-text {
+            flex: 1;
+            margin-left: 40px;
+            min-width: 300px;
+        }
+        
+        .header-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+        
+        .header-text h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+        
+        .header-text h2::after {
+            background-color: white;
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* About Section */
+        #about {
+            background-color: var(--white);
+        }
+        
+        /* Skills Section */
+        #skills {
+            background-color: var(--light-gray);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-img {
+            height: 180px;
+            background-color: var(--light-blue);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .skill-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .skill-category h3 {
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list li:before {
+            content: "►";
+            color: var(--accent-blue);
+            margin-right: 10px;
+            font-size: 0.8rem;
+        }
+        
+        /* Projects Section */
+        #projects {
+            background-color: var(--white);
+        }
+        
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-content h3 {
+            color: var(--dark-gray);
+            font-size: 1.4rem;
+        }
+        
+        .project-content p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+        
+        .technologies {
+            background-color: var(--light-blue);
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 6px;
+        }
+        
+        .technologies h4 {
+            margin-bottom: 10px;
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background-color: var(--light-gray);
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .contact-method {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-method i {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+        }
+        
+        .contact-method h3 {
+            color: var(--dark-gray);
+            margin-bottom: 10px;
+        }
+        
+        .contact-method p {
+            color: var(--medium-gray);
+            margin-bottom: 5px;
+        }
+
+        .emoji {
+            font-size: 1.5rem;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-text {
+                margin-left: 0;
+                margin-top: 30px;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .header-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .skills-container,
+            .projects-container,
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="mia.jpg" alt="Leila Avan (Mia)" class="profile-img">
+                <div class="header-text">
+                    <h1>Leila Avan (Mia)</h1>
+                    <h2>I am a Quantitative Analyst who translates complex on-chain and financial data into actionable market intelligence. By building and implementing predictive models, I help to demystify market movements in the cryptocurrency sector. My expertise also includes developing and managing automated risk strategies, ensuring that trading decisions are grounded in sound data analysis and designed to protect against the inherent volatility of the crypto market.</h2>
+                    <div class="contact-info">
+                        <p><span class="emoji">📧</span> leilaavanportfolio@gmail.com</p>
+                        <p><span class="emoji">📧</span> leilaavanquant@outlook.com</p>
+                        <p><span class="emoji">📍</span> USA, Spain and China</p>
+                        <p><span class="emoji">💼</span> Teams: @live:.cid.47363774424f18d</p>
+                        <p><span class="emoji">🎮</span> Discord: @leilaavan</p>
+                        <p><span class="emoji">📱</span> Telegram: @leilaavanquant</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a seasoned market analyst with a proven ability to build sophisticated mathematical and quantitative models that serve as a foundation for effective market prediction. My expertise lies in the meticulous analysis of on-chain and financial data to identify emerging patterns and anticipate future market movements. I am adept at creating and implementing comprehensive risk management strategies that protect assets and optimize returns. Through my work, I provide the strategic guidance necessary for businesses and investors to thrive in volatile and competitive markets.</p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <div class="skill-img">
+                        <img src="quantitativemodeling.jpg" alt="Quantitative Modeling">
+                    </div>
+                    <h3>Quantitative Modeling</h3>
+                    <p>I develop sophisticated mathematical models to analyze market behavior and predict future trends. My expertise includes time series analysis, regression models, and machine learning algorithms tailored for financial applications. These models form the foundation for data-driven investment strategies.</p>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-img">
+                        <img src="onchaindataanalysis.jpg" alt="On-Chain Data Analysis">
+                    </div>
+                    <h3>On-Chain Data Analysis</h3>
+                    <p>I specialize in extracting meaningful insights from blockchain data, including transaction volumes, wallet activities, and network metrics. By analyzing these on-chain indicators, I identify patterns that signal market movements and potential investment opportunities in the cryptocurrency space.</p>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-img">
+                        <img src="marketpredition.jpg" alt="Market Prediction">
+                    </div>
+                    <h3>Market Prediction</h3>
+                    <p>Using advanced statistical techniques and machine learning algorithms, I create predictive models that forecast market trends with significant accuracy. My approach combines traditional financial indicators with innovative data sources to provide comprehensive market outlooks.</p>
+                </div>
+                
+                <div class="skill-category">
+                    <div class="skill-img">
+                        <img src="riskmanagement.jpg" alt="Risk Management">
+                    </div>
+                    <h3>Risk Management</h3>
+                    <p>I design and implement robust risk management frameworks that protect investments while optimizing returns. My strategies include Value at Risk (VaR) calculations, stress testing, and scenario analysis to mitigate potential losses in volatile market conditions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="algorithmictradingmodel.jpg" alt="Algorithmic Trading Model for Cryptocurrency">
+                    </div>
+                    <div class="project-content">
+                        <h3>Algorithmic Trading Model for Cryptocurrency</h3>
+                        <p>This project builds a Machine Learning model to predict short-term price movements using on-chain data and market data of cryptos such as Bitcoin and Ethereum.</p>
+                        <div class="technologies">
+                            <h4>Technologies Used:</h4>
+                            <p>Python, Pandas, NumPy, scikit-learn, TensorFlow/PyTorch, Matplotlib/Seaborn</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="valueatrisk.jpg" alt="Value-at-Risk (VaR) and Stress Testing Framework">
+                    </div>
+                    <div class="project-content">
+                        <h3>Value-at-Risk (VaR) and Stress Testing Framework</h3>
+                        <p>This project focuses on creating a framework to calculate Value-at-Risk (VaR) for portfolios and perform stress testing for severe market conditions.</p>
+                        <div class="technologies">
+                            <h4>Technologies Used:</h4>
+                            <p>Python, NumPy, SciPy, Pandas, Matplotlib, Statistical Models</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="analyzingalpha.jpg" alt="Analyzing Alpha Factors from On-Chain Data">
+                    </div>
+                    <div class="project-content">
+                        <h3>Analyzing Alpha Factors from On-Chain Data</h3>
+                        <p>This research project finds and analyzes "alpha factors" from on-chain data that can predict future returns, using statistical techniques and backtesting.</p>
+                        <div class="technologies">
+                            <h4>Technologies Used:</h4>
+                            <p>Python, Pandas, statsmodels, alphalens, SQL/PostgreSQL</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <span class="emoji" style="font-size: 2.5rem;">📧</span>
+                    <h3>Gmail</h3>
+                    <p>leilaavanportfolio@gmail.com</p>
+                </div>
+                
+                <div class="contact-method">
+                    <span class="emoji" style="font-size: 2.5rem;">📧</span>
+                    <h3>Outlook</h3>
+                    <p>leilaavanquant@outlook.com</p>
+                </div>
+                
+                <div class="contact-method">
+                    <span class="emoji" style="font-size: 2.5rem;">💼</span>
+                    <h3>Microsoft Teams</h3>
+                    <p>Leila Avan</p>
+                    <p>@live:.cid.47363774424f18d</p>
+                </div>
+                
+                <div class="contact-method">
+                    <span class="emoji" style="font-size: 2.5rem;">🎮</span>
+                    <h3>Discord</h3>
+                    <p>Leila</p>
+                    <p>@leilaavan</p>
+                </div>
+                
+                <div class="contact-method">
+                    <span class="emoji" style="font-size: 2.5rem;">📱</span>
+                    <h3>Telegram</h3>
+                    <p>Leila Avan Quant</p>
+                    <p>@leilaavanquant</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Leila Avan (Mia). All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
